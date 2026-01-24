@@ -81,13 +81,22 @@
 
 /* ==================== Custom overrides ==================== */
 
-/* Hide ClearVision credit/watermark (selector may break on Discord UI updates) */
+/* Hide ClearVision credit/watermark (Discord class names change often) */
 #app-mount .leading_c38106,
 #app-mount .leading_c38106::before,
-#app-mount .leading_c38106::after {
+#app-mount .leading_c38106::after,
+#app-mount [class*="clearvision"],
+#app-mount [class*="ClearVision"],
+#app-mount [class*="cv-"][class*="watermark"],
+#app-mount [class*="watermark"][class*="cv-"],
+#app-mount a[href*="clearvision"] {
   opacity: 0 !important;
   pointer-events: none !important;
   content: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Emoji/GIF popouts should NOT dim the app:
