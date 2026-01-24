@@ -1,0 +1,161 @@
+/**
+ * Justin's ClearVision v7 Overrides (Vencord)
+ * Base theme: ClearVision v7 (Apache-2.0) — you are only hosting your overrides + imports.
+ *
+ * How to use (Vencord):
+ *   - Online themes: point Vencord at the RAW GitHub URL for this file
+ *   - OR put this file in %appdata%\vencord\themes and enable it
+ */
+
+@import url("https://clearvision.github.io/ClearVision-v7/main.css");
+@import url("https://clearvision.github.io/ClearVision-v7/vencord.css");
+
+/* ==================== Theme variables (safe to tweak) ==================== */
+:root {
+  /* Accent colors */
+  --main-color: #8764B8;
+  --hover-color: #6B4E95;
+  --success-color: #43b581;
+  --danger-color: #982929;
+  --url-color: var(--main-color);
+
+  /* Wallpaper */
+  --background-image: url("https://i.imgur.com/XSOBwhH.jpg");
+  --background-shading-percent: 25%;
+  --background-attachment: fixed;
+
+  /* Optional extra vars (some are used by ClearVision, some are harmless) */
+  --background-position: center;
+  --background-size: cover;
+  --background-repeat: no-repeat;
+  --background-brightness: 100%;
+  --background-contrast: 100%;
+  --background-saturation: 100%;
+  --background-grayscale: 0%;
+  --background-invert: 0%;
+  --background-sepia: 0%;
+  --background-blur: 3px;
+  --background-overlay: rgba(0, 0, 0, 0);
+
+  /* ClearVision v7 filters */
+  --background-filter: blur(var(--background-blur)) saturate(calc(var(--saturation-factor, 1) * 1));
+
+  /* User cards */
+  --user-popout-image: url("https://i.imgur.com/Vba2eQh.jpg");
+  --user-popout-attachment: fixed;
+  --user-popout-filter: blur(2px) saturate(calc(var(--saturation-factor, 1) * 1));
+
+  --user-modal-image: url("https://i.imgur.com/gGlA6Od.jpg");
+  --user-modal-attachment: fixed;
+  --user-modal-filter: blur(2px) saturate(calc(var(--saturation-factor, 1) * 1));
+
+  /* Home icon */
+  --home-icon: url("https://i.imgur.com/mg6Y8LT.jpg");
+  --home-position: center;
+  --home-size: 47px;
+
+  /* Channel text */
+  --channel-unread: var(--main-color);
+  --channel-color: rgba(255, 255, 255, 0.3);
+  --muted-color: rgba(255, 255, 255, 0.1);
+
+  /* Status colors */
+  --online-color: #43b581;
+  --idle-color: #faa61a;
+  --dnd-color: #F94147;
+  --streaming-color: #593695;
+  --offline-color: #808080;
+
+  /* Fonts */
+  --main-font: gg sans;
+  --code-font: Consolas;
+
+  /* Layout */
+  --channels-width: 240px;
+  --members-width: 240px;
+
+  /* Dim/blur strength (for the overlay rules below) */
+  --dim-alpha: 0.62;  /* 0.55–0.70 */
+  --dim-blur: 3px;    /* 2–4px */
+}
+
+/* ==================== Custom overrides ==================== */
+
+/* Hide ClearVision credit/watermark (selector may break on Discord UI updates) */
+#app-mount .leading_c38106,
+#app-mount .leading_c38106::before,
+#app-mount .leading_c38106::after {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  content: none !important;
+}
+
+/* Emoji/GIF popouts should NOT dim the app:
+   Only dim+blur for:
+   - Settings view (standardSidebarView)
+   - Full-screen modal backdrops (backdrop-*)
+*/
+@supports selector(:has(*)) {
+
+  /* One overlay that dims+blurs what's behind it */
+  #app-mount::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, var(--dim-alpha));
+    -webkit-backdrop-filter: blur(var(--dim-blur));
+    backdrop-filter: blur(var(--dim-blur));
+    opacity: 0;           /* off by default */
+    pointer-events: none; /* do not intercept clicks/scroll */
+    transition: opacity 120ms ease-out;
+    z-index: 100;
+  }
+
+  /* Keep Settings panel above overlay so it stays crisp */
+  [class*="standardSidebarView"] {
+    position: relative;
+    z-index: 101;
+  }
+
+  /* Turn ON when Settings is open */
+  #app-mount:has([class*="standardSidebarView"])::after {
+    opacity: 1;
+    /* Atlas patch: restore scroll wheel in Settings:
+       keep dim, disable blur during Settings */
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Turn ON when a full-screen backdrop exists (real modals) */
+  #app-mount:has([class*="backdrop-"])::after {
+    opacity: 1;
+  }
+
+  /* Blur/dim the native full-screen backdrop too (keeps modals sharp) */
+  [class*="backdrop-"] {
+    background: rgba(0, 0, 0, var(--dim-alpha)) !important;
+    -webkit-backdrop-filter: blur(var(--dim-blur));
+    backdrop-filter: blur(var(--dim-blur));
+  }
+
+  /* Ensure Settings panes always scroll */
+  [class*="standardSidebarView"] [class*="contentRegionScroller"],
+  [class*="standardSidebarView"] [class*="sidebarRegionScroller"],
+  [class*="standardSidebarView"] [class*="scroller"] {
+    overflow: auto !important;
+    max-height: 100vh !important;
+    overscroll-behavior: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Optional: make scrollbars visible if a theme hid them */
+  *::-webkit-scrollbar {
+    width: 10px !important;
+    height: 10px !important;
+  }
+  * {
+    scrollbar-width: auto !important;
+  }
+}
+
+/* ==================== End overrides ==================== */
