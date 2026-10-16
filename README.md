@@ -5,7 +5,7 @@ This repo hosts **only** my personal overrides (variables + extra CSS) and impor
 ## Use with Vencord (online theme)
 1. Open Vencord settings → **Themes**
 2. Add this file’s **RAW** GitHub URL as an online theme:
-   - `https://raw.githubusercontent.com/<YOUR_GH_USER>/<REPO>/main/theme.css`
+   - `https://raw.githubusercontent.com/Cucklord420/Discord-Theme/main/theme.css`
 
 ## Use with Vencord (local theme)
 1. Download `theme.css`
