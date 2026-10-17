@@ -1,0 +1,10 @@
+{
+  "name": "discord-theme-css-validation",
+  "version": "1.0.0",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "description": "Locked CSS syntax validation dependency",
+  "devDependencies": {
+    "prettier": "3.9.10"
+  }
+}
