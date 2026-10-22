@@ -17,3 +17,7 @@ AGPL v3 permits commercial use and charging for software or services. Covered re
 The existing `theme.css` was already released under the Unlicense. That dedication and the previous permissions remain effective; its text is preserved verbatim in [LICENSES/Unlicense-legacy.txt](LICENSES/Unlicense-legacy.txt). Merely adding this AGPL default does not impose copyleft on that pre-existing code. AGPL v3 applies to new copyrightable original material first contributed after this licensing change, and to its original documentation.
 
 Imported ClearVision v7 styles retain their Apache-2.0 terms. Linked external images retain their own rights. No ownership of upstream styles or images is claimed.
+
+## New material proposed by PR #8 — 2026-10-17
+
+The new `AGENTS.md`, `.gitignore`, `package.json`, and `package-lock.json`, plus the new or changed portions of `README.md` and `.github/workflows/validate.yml` proposed by PR #8, are original contributions licensed under AGPL-3.0-only with the complete terms in [LICENSE](LICENSE). This scope covers only those new or changed portions and does not alter licenses on pre-existing content or third-party material.
