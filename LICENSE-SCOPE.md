@@ -21,3 +21,7 @@ Imported ClearVision v7 styles retain their Apache-2.0 terms. Linked external im
 ## New material proposed by PR #8 — 2026-10-17
 
 The new `AGENTS.md`, `.gitignore`, `package.json`, and `package-lock.json`, plus the new or changed portions of `README.md` and `.github/workflows/validate.yml` proposed by PR #8, are original contributions licensed under AGPL-3.0-only with the complete terms in [LICENSE](LICENSE). This scope covers only those new or changed portions and does not alter licenses on pre-existing content or third-party material.
+
+## New material proposed by PR #32 — 2026-10-17
+
+The removal of the overbroad ClearVision link selector in `theme.css` proposed by PR #32 is an original contribution licensed under AGPL-3.0-only with the complete terms in [LICENSE](LICENSE). The pre-existing theme overrides remain under the Unlicense; imported ClearVision styles retain Apache-2.0, and this notice grants no rights in linked images.

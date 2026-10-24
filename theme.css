@@ -88,8 +88,7 @@
 #app-mount [class*="clearvision"],
 #app-mount [class*="ClearVision"],
 #app-mount [class*="cv-"][class*="watermark"],
-#app-mount [class*="watermark"][class*="cv-"],
-#app-mount a[href*="clearvision"] {
+#app-mount [class*="watermark"][class*="cv-"] {
   opacity: 0 !important;
   pointer-events: none !important;
   content: none !important;
