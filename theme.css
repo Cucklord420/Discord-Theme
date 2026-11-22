@@ -7,8 +7,8 @@
  *   - OR put this file in %appdata%\vencord\themes and enable it
  */
 
-@import url("https://clearvision.github.io/ClearVision-v7/main.css");
-@import url("https://clearvision.github.io/ClearVision-v7/vencord.css");
+@import url("https://raw.githubusercontent.com/ClearVision/ClearVision-v7/f4dababa725309de554ad1aa46291003406a3d1e/main.css");
+@import url("https://raw.githubusercontent.com/ClearVision/ClearVision-v7/f4dababa725309de554ad1aa46291003406a3d1e/vencord.css");
 
 /* ==================== Theme variables (safe to tweak) ==================== */
 :root {
